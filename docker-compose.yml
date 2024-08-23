@@ -1,0 +1,20 @@
+services:
+  sample-mariadb-database:
+    image: mariadb:10.6.18
+    container_name: sample-db-db
+    ports:
+      - "3306:3306"
+    restart: always
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max_allowed_packet=125829120 --default-time-zone=+00:00
+
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: sample-db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+    networks:
+      - sample-network
+networks:
+  sample-network:
