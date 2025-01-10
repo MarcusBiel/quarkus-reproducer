@@ -12,9 +12,11 @@ services:
       MYSQL_DATABASE: sample-db
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
+
     volumes:
       - ./data/mariadb:/var/lib/mysql
     networks:
       - sample-network
+
 networks:
   sample-network:
